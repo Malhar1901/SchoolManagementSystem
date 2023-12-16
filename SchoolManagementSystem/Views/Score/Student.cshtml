@@ -1,0 +1,69 @@
+@model IEnumerable<SchoolManagementSystem.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "Student";
+    Layout = "_Layout1";
+}
+
+<a class="btn btn-primary" asp-action="Course">Show Scores by Course</a>
+<a class="btn btn-primary" asp-action="Add">Add Score</a>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model){
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => student.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.BirthDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.PhoneNumber)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="ScoreStudent" asp-route-studentId="@student.Id">Edit scores by Student</a> 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

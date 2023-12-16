@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout2";
+}
+
+<form method="post" class="w-50">
+    <h1>Login</h1>
+
+    <h3 class="alert-danger">@ViewBag.Messege</h3>
+    <div class="form-group mt-1">
+        <label for="username" class="control-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required>
+    </div>
+    <div class="form-group mt-1">
+        <label for="password" class="control-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+    </div>
+
+    <input class="btn btn-primary mt-3" type="submit" value="Login">
+</form>

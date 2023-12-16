@@ -1,0 +1,49 @@
+@model IEnumerable<SchoolManagementSystem.Models.CourseModel>
+
+@{
+    ViewData["Title"] = "Score Course";
+    Layout = "_Layout1";
+}
+
+<a class="btn btn-primary" asp-action="Student">Show Scores by Student</a>
+<a class="btn btn-primary" asp-action="Add">Add Score</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var course in Model){
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => course.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Description)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="ScoreCourse" asp-route-courseId="@course.Id">Edit scores by Course</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
